@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //Network
 const baseURL = "https://api.openweathermap.org/data/2.5/weather?";
-const apiKey = "appid=048e25fecb5899abd9e872c78d12f3e5";
+const apiKey = "appid={API_KEY}";
 const urlUnits = "units=metric";
 
 //Styles
