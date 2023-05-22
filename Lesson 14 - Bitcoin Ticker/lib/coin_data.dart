@@ -1,31 +1,22 @@
-const List<String> currenciesList = [
-  'AUD',
-  'BRL',
-  'CAD',
-  'CNY',
-  'EUR',
-  'GBP',
-  'HKD',
-  'IDR',
-  'ILS',
-  'INR',
-  'JPY',
-  'MXN',
-  'NOK',
-  'NZD',
-  'PLN',
-  'RON',
-  'RUB',
-  'SEK',
-  'SGD',
-  'USD',
-  'ZAR'
-];
+import 'package:bitcoin_ticker/Model/coin_model.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
-const List<String> cryptoList = [
-  'BTC',
-  'ETH',
-  'LTC',
-];
+import 'constants.dart';
 
-class CoinData {}
+class CoinData {
+  Future<Coin> getCoinData(String from, String to) async {
+    var url = Uri.parse("$baseURL/$from/$to?apikey=$apiKey");
+
+    print(url.toString());
+
+    final http.Response response = await http.get(url);
+    return Coin.fromRawJson(response.body);
+    /* if (response.statusCode == 200) {
+      print("response: 200");
+      final coin = coinFromJson(response.body);
+    } else {
+      print("response code : ${response.statusCode}");
+    } */
+  }
+}
