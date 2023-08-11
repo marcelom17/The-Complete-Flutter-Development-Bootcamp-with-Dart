@@ -1,0 +1,53 @@
+Precedentes
+- Ir ao Firebase console e no projecto desejado, confirmar que o 
+Build/hosting, está ativo.
+
+Não é obrigatório mas útil.
+
+- Ter adicionada a dependência "firebase_core"
+ $ flutter pub add firebase_core
+
+- Ter "flutterfire_cli" instalado
+ $ dart pub global activate flutterfire_cli
+
+- Build de web executado pelo menos uma vez
+ $ flutter build web
+
+-------------
+
+
+1. $ firebase login
+2. Flutterfire configurado
+
+    $ flutterfire configure --project=<project_id>
+      Exemplo project_id: m5s1-052023
+
+    Notas:
+
+        Sem `--project` irão ser listados todos os projectos
+        Só precisamos de selecionar "web"
+
+3. $ firebase init --project=<project_id>
+
+   Exemplo project_id: m5s1-052023
+
+   Sem `--project` irão ser listados todos os projectos
+
+   a. Selecionar só: "Hosting: Configure files for Firebase Hosting and 
+(optionally) set up Github Actions deploys"
+   b. Q: What do you want to use as your public directoy?
+      build/web
+   c. Q: Configure as a single-page app (rewrite all urls to /index.html)
+      N
+   d. Q: Set up automatic builds and deploys with Github?
+      N
+   e. Q: Fire build/web/index.html already exists. Overwrite?
+      N
+
+
+Agora estão em condições de executar `firebase serve` para o projecto a 
+correr localmente.
+4. $ firebase deploy
+
+
+Ter a certeza que antes foi executado "$ flutter build web"
